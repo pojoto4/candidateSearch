@@ -1,8 +1,20 @@
+import { Link } from "react-router-dom";
+
 const Nav = () => {
-  // TODO: Add necessary code to display the navigation bar and link between the pages
   return (
-    <div>Nav</div>
-  )
+    <nav className="nav">
+      <div className="nav-item">
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
+        <div className="nav-item">
+          <Link to="/saved" className="nav-link">
+            Potential Candidates
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Nav;
