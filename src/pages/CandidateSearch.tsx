@@ -15,18 +15,14 @@ const CandidateSearch = () => {
     name: null,
   });
 
-  // Function to fetch a candidate
   const fetchCandidate = async () => {
     try {
-      // Get a list of users
       const users = await searchGithub();
 
       if (users && users.length > 0) {
-        // Get a random user from the list
         const randomIndex = Math.floor(Math.random() * users.length);
         const username = users[randomIndex].login;
 
-        // Get detailed user information
         const userData = await searchGithubUser(username);
         setCurrentCandidate(userData);
       }
@@ -35,12 +31,10 @@ const CandidateSearch = () => {
     }
   };
 
-  // Load initial candidate on component mount
   useEffect(() => {
     fetchCandidate();
   }, []);
 
-  // Function to save candidate to localStorage
   const addToSavedList = () => {
     if (currentCandidate.login) {
       let savedCandidates: Candidate[] = [];
@@ -50,17 +44,16 @@ const CandidateSearch = () => {
       }
       savedCandidates.push(currentCandidate);
       localStorage.setItem("savedCandidates", JSON.stringify(savedCandidates));
-      fetchCandidate(); // Load next candidate
+      fetchCandidate();
     }
   };
 
-  // Function to skip current candidate
   const skipCandidate = () => {
-    fetchCandidate(); // Load next candidate
+    fetchCandidate();
   };
 
   return (
-    <main>
+    <main style={{ paddingTop: "20px" }}>
       <h1>Candidate Search</h1>
       <CandidateCard
         currentCandidate={currentCandidate}

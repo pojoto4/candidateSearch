@@ -3,9 +3,8 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 
 type CandidateCardProps = {
   currentCandidate: Candidate;
-  addToSavedList?: () => void; // Removed null
-  skipCandidate?: () => void; // Removed null
-  // Removed unused props
+  addToSavedList?: () => void;
+  skipCandidate?: () => void;
 };
 
 const CandidateCard = ({
@@ -17,15 +16,21 @@ const CandidateCard = ({
     <>
       {currentCandidate?.login ? (
         <section className="card">
-          <div className="card-header">
-            <img
-              src={currentCandidate.avatar_url || ""} // Use empty string fallback
-              alt={`${
-                currentCandidate.name || currentCandidate.login
-              }'s avatar`}
-            />
-            <h2>{currentCandidate.name || currentCandidate.login}</h2>
-          </div>
+          <img
+            src={currentCandidate.avatar_url || ""}
+            alt={`${currentCandidate.name || currentCandidate.login}'s avatar`}
+            style={{
+              width: "100%",
+              height: "auto",
+              borderRadius: "8px 8px 0 0",
+              marginBottom: "1.5em",
+              objectFit: "cover",
+            }}
+          />
+
+          <h2 style={{ marginTop: 0 }}>
+            {currentCandidate.name || currentCandidate.login}
+          </h2>
 
           <div className="card-body">
             <p>
