@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a front-end application that lets you search through Github profiles and add profiles you like to a saved candidate list
+This is a front-end application that lets you search through Github profiles and add profiles you like to a saved candidate list: (https://candidatesearch-goxy.onrender.com)
 
 ## Table of Contents
 
